@@ -1,10 +1,10 @@
 import {Routes,Route,BrowserRouter} from 'react-router-dom';
-
+import './App.css'
 import Register from '../src/pages/register';
 import Login  from '../src/pages/login';
 import Dashboard from '../src/pages/Dashboard';
 import Todo from '../src/components/Todo';
-import Kanban from '../src/components/Kanban';
+import Kanban from '../src/pages/Kanban';
 import event_sch from '../src/pages/event_sch';
 function App() {
   

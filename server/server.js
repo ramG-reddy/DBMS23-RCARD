@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/todos',require('./routes/todos.js'));
-
+app.use('/kanban',require('./routes/kanban.js'));
 
 app.listen(PORT,()=>{console.log(`listening on port ${PORT}`);});
 

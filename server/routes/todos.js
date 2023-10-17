@@ -7,13 +7,17 @@ const router=express.Router();
 const db=mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"Password",
-    database:"TutorialDB",
+    password:"",
+    database:"trial2",
     multipleStatements:true
 })
 // get all members
+router.get('/',(err,res)=>{
+    // if(err) return res.json(err);
+    return res.json("FROM SERVER");
+});
 router.get('/todos',(err,res)=>{
-    const sql="SELECT * FROM TODO";
+    const sql="SELECT * FROM todo";
     db.query(sql,(err,data)=>{
      if(err) return res.json(err);
      return res.json((data));
@@ -43,7 +47,7 @@ router.post('/create',(req,res)=>{
 })
 //delete member using id
 router.delete('/:id',(req,res)=>{
-   const sql="DELETE FROM TODO WHERE T_id=?";
+   const sql="DELETE FROM todo WHERE T_id=?";
    const v=req.params.id;
    
    db.query(sql,v,(err,data)=>{
@@ -93,7 +97,7 @@ router.put('/notes/update/:id',(req,res)=>{
 
 //login
 router.post('/login',(req,res)=>{
-    const sql="SELECT Username FROM Login WHERE Username=? && Password=?";
+    const sql="SELECT u_name FROM login WHERE u_name=? && Pswd=?";
     const val=[req.body.Username,req.body.Password];
     db.query(sql,val,(err,data)=>{
         if(err) return res.json("LOGIN FAILED");
