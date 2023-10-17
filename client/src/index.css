@@ -2,3 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CUSTOM FOR TODOS */
+
+.card {
+    
+    background: #00FFA0;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: .5vmin solid #05060f;
+    box-shadow: .4rem .4rem #05060f;
+    overflow: wrap;
+    color: black;
+    
+  }
+.tags{
+    border: .5vmin solid #05060f;
+    box-shadow: .2rem .2rem #05060f;
+    overflow:none;
+}
+.delete{
+  background: #00FFA0;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: .5vmin solid #05060f;
+    box-shadow: .4rem .4rem #05060f;
+    overflow: hidden;
+    color: red;
+} 
+.edit{
+  background: #00FFA0;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: .5vmin solid #05060f;
+    box-shadow: .4rem .4rem #05060f;
+    overflow: hidden;
+    color: indigo;
+} 
+.create{
+  color:magenta;
+}

@@ -1,4 +1,5 @@
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Sidebar from '../../components/sidebar';
 const Dashboard =()=>{
     const uname=useParams().username;

@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" Component={Login}></Route>
         {/* <Route path="/Dashboard" Component={Dashboard}></Route> */}
         <Route path="/login/:username/Dashboard" Component={Dashboard}></Route>
-        <Route path="/login/:username/Dashboard/todo" Component={Todo}></Route>
+        <Route path="/login/:username/Dashboard/todos" Component={Todo}></Route>
         <Route path="/login/:username/Dashboard/Kanban" Component={Kanban}></Route>
         <Route path="/login/:username/Dashboard/Event_schduler" Component={event_sch}></Route>
       </Routes>
