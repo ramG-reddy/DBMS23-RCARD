@@ -1,0 +1,101 @@
+body{
+    margin: 2vh 0;
+    
+  }
+  .kh{
+    margin-top: 10px;
+   display: flex;
+   flex-direction: row;
+   width:100%;
+   justify-content: space-around;
+   
+  }
+  .stat{
+    padding-bottom: 50px;
+    padding-top:50px;
+    width: 32%;
+    background-color:rgb(31,41,55);
+    border-radius: 30px;
+  }
+  .khele{
+    width: 10vw;
+    padding: 5vh 0;
+    text-align: center;
+    margin: auto;
+    color: aqua;
+    background-color: salmon;
+  }
+  .khele:hover{
+    cursor: pointer;
+  }
+  #st{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    color: red;
+  }
+  #pg{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: yellow;
+  }
+  #co{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: green;
+  }
+  .tdlist{
+    width: 90%;
+    height: 20%;
+    margin: 10px auto;
+    padding: 2% 2%; 
+    background-color:rgb(56, 70, 88);
+    color: white;
+    border-radius: 10px;
+  }
+  .tdlist:hover{
+    cursor: pointer;
+  }
+  .inertodo{
+    display: flex;
+    flex-direction: column;
+  }
+  .inudt{
+    width: 90%;
+    margin: auto;
+    padding: 0 20px;
+  }
+  .udtele{
+    width: 90%;
+    margin: auto;
+    padding: 10px ;
+  }
+  .udtele:hover{
+    cursor: pointer;
+  }
+  #udttocom{
+    color: green;
+  }
+  #udttoprg{
+    color: yellow;
+  }
+  #udttotost{
+    color: red;
+  }
+  @media screen and (max-width: 500px) {
+    .kh{
+      flex-direction: column;
+    }
+    .stat{
+      width: 360px;
+      margin: 20px auto;
+    }
+    .khele{
+      width: 100px;
+    }
+    
+  }
+  .ram{
+    font-size: x-large;
+    text-align: center;
+    color: aqua;
+    width: 50%; 
+    margin:auto;
+  }
+  
