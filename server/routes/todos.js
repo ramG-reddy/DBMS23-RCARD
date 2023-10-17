@@ -7,23 +7,11 @@ const router=express.Router();
 const db=mysql.createConnection({
     host:"localhost",
     user:"root",
-<<<<<<< HEAD
     password:"Password",
     database:"project",
     multipleStatements:true
 })
-// get all members updated with db
-=======
-    password:"",
-    database:"trial2",
-    multipleStatements:true
-})
-// get all members
-router.get('/',(err,res)=>{
-    // if(err) return res.json(err);
-    return res.json("FROM SERVER");
-});
->>>>>>> 99cea9eea9398dd1892ee8706dcd64536bfec047
+//get todos updated
 router.get('/todos',(err,res)=>{
     const sql="SELECT * FROM todo";
     db.query(sql,(err,data)=>{
@@ -45,7 +33,7 @@ router.get('/todos',(err,res)=>{
 })
 //delete member using id updated with db
 router.delete('/:id',(req,res)=>{
-<<<<<<< HEAD
+
     const sql="DELETE FROM todo WHERE t_id=?";
     const v=req.params.id;
     console.log(v);
@@ -63,14 +51,7 @@ router.get('/tags',(req,res)=>{
     db.query(sql,tags,(err,data)=>{
         if(err) return res.json(err)
         return res.json((data))
-=======
-   const sql="DELETE FROM todo WHERE T_id=?";
-   const v=req.params.id;
-   
-   db.query(sql,v,(err,data)=>{
-    if(err) return res.json(err);
-    
-    return res.json({mess:"Deleted VALUES ..."});
+
 })}
 )
 
@@ -82,7 +63,7 @@ router.put('/:id',(req,res)=>{
         if(err) return res.json("ERROR");
         return res.json({mess:`UPDATED ${req.params.id}`}) 
 
->>>>>>> 99cea9eea9398dd1892ee8706dcd64536bfec047
+
     })
 }) 
 
@@ -102,11 +83,8 @@ router.put('/update/:id',(req,res)=>{
 
 //login and updated with new db
 router.post('/login',(req,res)=>{
-<<<<<<< HEAD
+
     const sql="SELECT u_name FROM login WHERE u_name=? && pswd=?";
-=======
-    const sql="SELECT u_name FROM login WHERE u_name=? && Pswd=?";
->>>>>>> 99cea9eea9398dd1892ee8706dcd64536bfec047
     const val=[req.body.Username,req.body.Password];
     db.query(sql,val,(err,data)=>{
         if(err) return res.json("LOGIN FAILED");

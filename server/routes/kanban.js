@@ -7,8 +7,8 @@ const router=express.Router();
 const db=mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"",
-    database:"trial2",
+    password:"Password",
+    database:"project",
     multipleStatements:true
 })
 
