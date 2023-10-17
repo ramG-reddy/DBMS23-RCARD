@@ -20,7 +20,7 @@ const   Login =()=>{
 		axios.post(`http://localhost:3002/todos/login`,{"Username":username,"Password":password}).then( (res) => 
 		{
 			console.log(res,res.data[0]);
-			if(res.data[0].Username == username){
+			if(res.data[0].u_name == username){
 			addNotification({ 
 					title: `${username} ,WELCOME!!!`, 
 					native:true         
