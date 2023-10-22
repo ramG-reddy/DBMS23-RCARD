@@ -6,6 +6,7 @@ import Dashboard from '../src/pages/Dashboard';
 import Todo from '../src/components/Todo';
 import Kanban from '../src/pages/Kanban';
 import event_sch from '../src/pages/event_sch';
+import EventWrap from './components/EventWrap';
 function App() {
   
 
@@ -22,7 +23,7 @@ function App() {
         <Route path="/login/:username/Dashboard" Component={Dashboard}></Route>
         <Route path="/login/:username/Dashboard/todos" Component={Todo}></Route>
         <Route path="/login/:username/Dashboard/Kanban" Component={Kanban}></Route>
-        <Route path="/login/:username/Dashboard/Event_schduler" Component={event_sch}></Route>
+        <Route path="/login/:username/Dashboard/Event_scheduler" Component={EventWrap}></Route>
       </Routes>
       </BrowserRouter>
      
