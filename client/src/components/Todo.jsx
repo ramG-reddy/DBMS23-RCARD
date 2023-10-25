@@ -2,8 +2,7 @@ import axios from 'axios';
 import Sidebar from './sidebar';
 import { useParams } from 'react-router-dom';
 import { useState ,useEffect} from "react";
-import addNotification from 'react-push-notification'; 
-import { Notifications } from 'react-push-notification'; 
+
 const Todo =()=>{
 const [edit,Setedit]=useState(false);  
 const [items,Setitems]=useState([]);
@@ -11,34 +10,42 @@ const [nitem,Setnitem]=useState("");
 const [tags,Settags]=useState("");
 const [up,Setup]=useState("");
 const uname=useParams().username;
-
+const [auth,setAuth]=useState(false);
 useEffect(()=>{
-    axios.get('http://localhost:3002/todos/todos').then((response)=> Setitems(response.data)).catch((err)=> console.log(err));
+    axios.post('http://localhost:3002/todos/todos',{"u_name":uname}).then((response)=> Setitems(response.data)).catch((err)=> console.log(err));
 
-},[items]);
+},[items,uname]);
+
+    useEffect(()=>{
+      console.log(uname);
+      axios.post("http://localhost:3002/todos/",{"ver_name":`${uname}`}).then(res => {
+         console.log(res.data);
+         if(res.data.status == "token"){
+            setAuth(true);
+         }
+         else{
+            setAuth(false);
+         }
+      })
+    },[uname]);
 let count= items.length;
 console.log(count);
 const handleChange=()=>{
     axios.post('http://localhost:3002/todos/create',{"Title":nitem,"Tags":tags,"uname":uname,"project":"p1"}).then((response)=> console.log(response)).catch((err)=>(err))
-    addNotification({ 
-      title: 'ADDED A TODO', 
-      native:true         
-    })
+   console.log("Success added");
 };
  const handleDelete=(id)=>{
     
     axios.delete(`http://localhost:3002/todos/`+`${id}`).then((res)=>console.log(res)).catch((err)=>console.log(err));
-    addNotification({ 
-      title: 'DELETED A ITEM', 
-      native:true         
-    })
+    console.log("delete")
 };
 const handleedit =(id) =>{
   axios.put(`http://localhost:3002/todos/update/`+`${id}`).then((res)=>console.log(res)).catch((err)=>console.log(err));
 }
 
 return(<>
-<Notifications /> 
+
+
 <Sidebar name={uname}/>
 <div className="p-4 sm:ml-64">
   {edit && <>
@@ -55,9 +62,9 @@ return(<>
     
     </div></> }
 <div className=" flex flex-col items-center">
-        <h1 className=" text-4xl m-16 font-bold">Simple Todo App</h1>
+        
       <div className="p-6">
-        <input className=" bg-slate-100 rounded-md p-4 m-1" 
+        <input className=" bg-slate-100 rounded-md p-4" 
         type="text"
         value={nitem}
         onChange = {(e)=>{
@@ -68,7 +75,7 @@ return(<>
         
       </div>
       <div className="p-6">
-        <input className=" bg-slate-100 rounded-md p-4 mt-1" 
+        <input className=" bg-slate-100 rounded-md p-4" 
         type="text"
         value={tags}
         onChange = {(e)=>{

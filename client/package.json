@@ -18,7 +18,7 @@
     "react-aria": "^3.29.0",
     "react-datetime-picker": "^5.5.3",
     "react-dom": "^18.2.0",
-    "react-push-notification": "^1.5.3",
+    
     "react-router-dom": "^6.16.0"
   },
   "devDependencies": {

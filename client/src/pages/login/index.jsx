@@ -2,45 +2,43 @@ import {Link} from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import addNotification from 'react-push-notification'; 
-import { Notifications } from 'react-push-notification'; 
+
 const   Login =()=>{
 	const navigate = useNavigate();
 	const [username,Setusername]=useState("");
 	const [password,Setpassword]=useState("");
+	axios.defaults.withCredentials =true;
 	const handleSubmit =  (e)=>{
 		e.preventDefault();
 		if(username=="" || password==""){
-			addNotification({ 
-				title: 'NOT VALID USERNAME OR PASSWORD!!!', 
-				native:true         
-              })
+			console.log("enter correctly pass.....")
 		}
-		
-		axios.post(`http://localhost:3002/todos/login`,{"Username":username,"Password":password}).then( (res) => 
-		{
+		console.log("enter correctly");
+		axios.post(`http://localhost:3002/todos/login`,{"Username":username,"Password":password}).then( res => 
+		{ 
+			console.log("e");
 			console.log(res,res.data[0]);
-			if(res.data[0].u_name == username){
-			addNotification({ 
-					title: `${username} ,WELCOME!!!`, 
-					native:true         
-                })
-             navigate(`${username}/dashboard`);
+			if(res.data.mess === "logined"){
+
+				navigate(`/login/${username}/Dashboard`);
+			}
+			else{
+				console.log("not login");
+				navigate("/login");
 			}
 			
 		
 
 	
-	}).catch( () =>  addNotification({ 
-		title: `THERE WAS AN ERROR OR CRENDENTIALS WERE WRONG!!`, 
-		native:true         
+	}).catch( () =>  {
+
 	}),
-	navigate("/login"));
+	navigate("/login");
 		
 		
 	}
    return(<>
-    <Notifications /> 
+    
     <div className="h-screen md:flex">
 	<div
 		className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden">
@@ -80,8 +78,8 @@ const   Login =()=>{
 							<input className="pl-2 outline-none border-none" type="password" name="password" id="" placeholder="Password" onChange={(e) => Setpassword(e.target.value)} />
       </div>                                      
 							<button type="submit" className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Login</button>
-							<span className="text-md m-4 p-2 rounded-2xl border-2 text-blue-500 hover:text-white hover:bg-green-400 cursor-pointer">Forgot Password</span>
-                            <Link to='/Register'><span className="text-md m-4 p-2 rounded-2xl border-2 text-blue-500 hover:text-white hover:bg-green-400 cursor-pointer">Register</span></Link>
+							
+                            <Link to='/Register'><span className="text-md m-4 p-2 rounded-2xl border-2 text-blue-500 hover:text-white hover:bg-green-400 cursor-pointer">don`t have account</span></Link>
 
 		</form>
 	</div>
