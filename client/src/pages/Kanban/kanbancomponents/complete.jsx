@@ -3,7 +3,7 @@ import { useState } from "react"
 import Updatetocom from "./Updatetocom"
 const complete = ({todo,change,count}) => {
   return (
-    <div className="stat">
+    <div className=" py-[50px] w-[32%] bg-slate-600 rounded-2xl">
         <div id="co" className="ram">
             COMPLETE
         </div>

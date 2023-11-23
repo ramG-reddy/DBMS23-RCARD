@@ -81,7 +81,7 @@ const index = () => {
         
             <Sidebar name={uname}/>
             <div className="sm:ml-64">
-            <div className="kh"ription>
+            <div className=" mt-5 flex justify-around">
             <Tostart todo={lst} change={chgst} count={count} />
             <Inprg todo={lst} change={chgst} count={count} />
             <Complete todo={lst} change={chgst} count={count} />

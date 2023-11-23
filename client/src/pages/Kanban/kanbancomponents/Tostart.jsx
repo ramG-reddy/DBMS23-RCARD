@@ -4,7 +4,7 @@ import Updatetost from "./updatetost"
 const tostart = ({todo,change}) => {
     console.log(todo)
   return (
-    <div id="tostartlist" className="stat">
+    <div id="tostartlist" className=" py-[50px] w-[32%] bg-slate-600 rounded-2xl">
             
             <div id="st" className="ram">
             TO START

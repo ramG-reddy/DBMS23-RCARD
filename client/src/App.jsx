@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <a className=' m-2 p-2 bg-emerald-700 rounded-md' href='/login/:username/Dashboard/Event_scheduler'>Go to Event Scheduler</a>
+      {/* <a className=' mt-2 p-2 bg-purple-700 rounded-md' href='/login/:username/Dashboard/Event_scheduler'>Go to Event Scheduler</a>  */}
       
       <BrowserRouter>
       
